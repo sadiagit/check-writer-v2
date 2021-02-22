@@ -106,19 +106,19 @@
               "**/node_modules/**"
             ]
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "check-writer-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "check-writer-app:serve:production"
-            }
-          }
         }
+        //"e2e": {
+        //  "builder": "@angular-devkit/build-angular:protractor",
+        //  "options": {
+        //    "protractorConfig": "e2e/protractor.conf.js",
+        //    "devServerTarget": "check-writer-app:serve"
+        //  },
+        //  "configurations": {
+        //    "production": {
+        //      "devServerTarget": "check-writer-app:serve:production"
+        //    }
+        //  }
+        //}
       }
     }},
   "defaultProject": "check-writer-app"
