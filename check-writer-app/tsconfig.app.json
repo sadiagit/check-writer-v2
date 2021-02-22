@@ -5,8 +5,8 @@
     "types": []
   },
   "files": [
-    "check-writer-app/src/main.ts",
-    "check-writer-app/src/polyfills.ts"
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.ts"
