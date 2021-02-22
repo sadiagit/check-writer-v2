@@ -1,12 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app"
-    //"types": []
+    "outDir": "./out-tsc/app",
+    "types": []
   },
   "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
+    "check-writer-app/src/main.ts",
+    "check-writer-app/src/polyfills.ts"
   ],
   "include": [
     "src/**/*.ts"
