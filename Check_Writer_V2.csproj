@@ -3,7 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+   
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="check-writer-app\angular.json" />
+    <Content Remove="check-writer-app\package-lock.json" />
+    <Content Remove="check-writer-app\package.json" />
+    <Content Remove="check-writer-app\tsconfig.app.json" />
+    <Content Remove="check-writer-app\tsconfig.json" />
+    <Content Remove="check-writer-app\tsconfig.spec.json" />
+    <Content Remove="check-writer-app\tslint.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -11,17 +22,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="check-writer-app\out-tsc\e2e\" />
+    <Folder Include="check-writer-app\dist\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="check-writer-app\package.json">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
+    <None Include="check-writer-app\angular.json" />
+    <None Include="check-writer-app\package-lock.json" />
+    <None Include="check-writer-app\package.json" />
+    <None Include="check-writer-app\tsconfig.app.json" />
+    <None Include="check-writer-app\tsconfig.json" />
+    <None Include="check-writer-app\tsconfig.spec.json" />
+    <None Include="check-writer-app\tslint.json" />
   </ItemGroup>
    <PropertyGroup>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
+  <Target Name="PublishAngular" AfterTargets="ComputeFilesToPublish">
+   
+    <ItemGroup>
+      <DistFiles Include="check-writer-app\dist\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
 
 </Project>

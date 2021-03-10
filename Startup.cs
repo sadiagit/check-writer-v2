@@ -46,7 +46,10 @@ namespace Check_Writer_V2
             }
 
             app.UseHttpsRedirection();
-            app.UseSpaStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
             app.UseMvc();
             app.UseSpa(spa =>
             {
@@ -54,11 +57,13 @@ namespace Check_Writer_V2
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "check-writer-app";
+               
 
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
+
             });
         }
     }
